@@ -7,5 +7,14 @@ name = soup.find('h1',class_='firstHeading').text
 print("Botanical name:",name)
 
 details = soup.find('table', class_='infobox biota')
-table = details.find_all('td')
-print(table)
+list = [[]]
+for tr in details.find_all('tr'):
+    tds = tr.find_all('td')
+    if(len(tds)>1):
+        temp=[]
+        temp.append(tds[0].text)
+        temp.append(tds[1].text)
+        list.append(temp)
+for i in list:
+    print(i)
+
